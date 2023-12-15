@@ -58,7 +58,7 @@ Partial Public Class HomeView
             Return
         End If
         _contentLoaded = true
-        Dim resourceLocater As System.Uri = New System.Uri("/ConnectApiVb;component/views/homeview.xaml", System.UriKind.Relative)
+        Dim resourceLocater As System.Uri = New System.Uri("/deneme;component/views/homeview.xaml", System.UriKind.Relative)
         
         #ExternalSource("..\..\..\..\Views\HomeView.xaml",1)
         System.Windows.Application.LoadComponent(Me, resourceLocater)

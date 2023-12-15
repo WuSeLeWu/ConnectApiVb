@@ -2995,11 +2995,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mustafa Yılman\\Desktop\\Yeni klasör\\ConnectApiVb\\deneme\\deneme.vbproj",
+      "projectUniqueName": "C:\\Users\\Mustafa Yılman\\Desktop\\ConnectApiVb\\ConnectApiVb\\deneme\\deneme.vbproj",
       "projectName": "deneme",
-      "projectPath": "C:\\Users\\Mustafa Yılman\\Desktop\\Yeni klasör\\ConnectApiVb\\deneme\\deneme.vbproj",
+      "projectPath": "C:\\Users\\Mustafa Yılman\\Desktop\\ConnectApiVb\\ConnectApiVb\\deneme\\deneme.vbproj",
       "packagesPath": "C:\\Users\\Mustafa Yılman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mustafa Yılman\\Desktop\\Yeni klasör\\ConnectApiVb\\deneme\\obj\\",
+      "outputPath": "C:\\Users\\Mustafa Yılman\\Desktop\\ConnectApiVb\\ConnectApiVb\\deneme\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",

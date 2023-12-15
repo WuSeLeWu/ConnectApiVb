@@ -79,7 +79,7 @@ Partial Public Class EmployeeView
             Return
         End If
         _contentLoaded = true
-        Dim resourceLocater As System.Uri = New System.Uri("/ConnectApiVb;component/views/employeeview.xaml", System.UriKind.Relative)
+        Dim resourceLocater As System.Uri = New System.Uri("/deneme;component/views/employeeview.xaml", System.UriKind.Relative)
         
         #ExternalSource("..\..\..\..\Views\EmployeeView.xaml",1)
         System.Windows.Application.LoadComponent(Me, resourceLocater)

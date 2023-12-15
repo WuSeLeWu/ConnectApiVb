@@ -79,7 +79,7 @@ Partial Public Class LoginWindow
             Return
         End If
         _contentLoaded = true
-        Dim resourceLocater As System.Uri = New System.Uri("/ConnectApiVb;component/loginwindow.xaml", System.UriKind.Relative)
+        Dim resourceLocater As System.Uri = New System.Uri("/deneme;component/loginwindow.xaml", System.UriKind.Relative)
         
         #ExternalSource("..\..\..\LoginWindow.xaml",1)
         System.Windows.Application.LoadComponent(Me, resourceLocater)

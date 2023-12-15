@@ -142,7 +142,7 @@ Partial Public Class EmployeeCrud
             Return
         End If
         _contentLoaded = true
-        Dim resourceLocater As System.Uri = New System.Uri("/deneme;V1.0.0.0;component/employeecrud.xaml", System.UriKind.Relative)
+        Dim resourceLocater As System.Uri = New System.Uri("/deneme;component/employeecrud.xaml", System.UriKind.Relative)
         
         #ExternalSource("..\..\..\EmployeeCrud.xaml",1)
         System.Windows.Application.LoadComponent(Me, resourceLocater)

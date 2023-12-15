@@ -3,13 +3,10 @@ Imports Newtonsoft.Json
 Imports System.Data
 
 Public Class RoleView
-
-    Private ReadOnly apiService As ApiConnect
     Private ReadOnly viewModel As RoleVM
 
     Public Sub New()
         InitializeComponent()
-        apiService = New ApiConnect()
         viewModel = New RoleVM()
         DataContext = viewModel
     End Sub

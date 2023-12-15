@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dt7QafJWhu6kLJ2/KYHRZ5w3Iqw55WmZGia8aRuRgLydsp7+jCoukQgYLYvtTx4wppJfPxG2piJKJVrmJfWccQ==",
+  "dgSpecHash": "Mxa94tMbx7jJ3BWLxOVHP52E6OijuR4db8yU0WbXi3V2bcYAiqJWIMfEIAlxS/bkL0O6Q48yIU1DByLHkyRwWg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mustafa Yılman\\Desktop\\Yeni klasör\\ConnectApiVb\\deneme\\deneme.vbproj",
+  "projectFilePath": "C:\\Users\\Mustafa Yılman\\Desktop\\ConnectApiVb\\ConnectApiVb\\deneme\\deneme.vbproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages\\devexpress.data\\23.1.6\\devexpress.data.23.1.6.nupkg.sha512",
     "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages\\devexpress.data.desktop\\23.1.6\\devexpress.data.desktop.23.1.6.nupkg.sha512",
