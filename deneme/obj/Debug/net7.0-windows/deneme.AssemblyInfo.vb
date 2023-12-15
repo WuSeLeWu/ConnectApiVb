@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("deneme"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+449d0ea721b8e2e4b3459d15dfaab4f9da3fd331"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("deneme"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("deneme"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _
