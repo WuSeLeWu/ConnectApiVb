@@ -16,7 +16,7 @@ Public Class LoginWindow
             If Not response.success Then
                 ' Yanlış giriş durumu
                 Dim errorMessages As String = String.Join(Environment.NewLine, response.errors)
-                MessageBox.Show("Hata: " & errorMessages)
+                errorMessage.Text = $"{errorMessages}"
             Else
                 ' Doğru giriş
                 Dim tokenModel As TokenModel = response.data ' İlk veriyi alabilirsiniz
@@ -41,7 +41,7 @@ Public Class LoginWindow
             End If
         Else
             ' API'ye istek gönderilirken bir sorun oluştu
-            MessageBox.Show("API ile bağlantıda bir sorun oluştu!")
+            errorMessage.Text = "API ile bağlantıda bir sorun oluştu!"
         End If
     End Sub
 End Class

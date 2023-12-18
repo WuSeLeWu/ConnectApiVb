@@ -42,6 +42,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <TextBlock
                     Grid.Row="0"
@@ -70,8 +71,17 @@
                     HorizontalAlignment="Left"
                     BorderThickness="0,0,0,1"
                     Password="mustafa123" />
+                <TextBlock
+                    x:Name="errorMessage"
+                    Grid.Row="4"
+                    Width="250"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Center"
+                    Foreground="red"
+                    Text=""
+                    TextWrapping="Wrap" />
             </Grid>
-            <TextBlock HorizontalAlignment="Right" Text="forgot password?" />
+
             <Button
                 x:Name="LoginBtn"
                 Width="250"
