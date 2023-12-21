@@ -5,26 +5,29 @@ Imports System.Windows.Controls
 ''' Interaction logic for MainWindow.xaml
 ''' </summary>
 Public Class MainWindow
+
+    Private ReadOnly mainViewModel As MainViewModel
     Public Sub New()
         InitializeComponent()
-
+        mainViewModel = New MainViewModel()
+        mainViewModel.LoadPagesFromAPI()
     End Sub
 
 
 
     Private Sub ButtonHome_Click(sender As Object, e As RoutedEventArgs)
         ' HomeView'i yükleyecek butonun tıklanma olayı
-        MainFrame.Content = New HomeView()
+        'MainFrame.Content = New HomeView()
 
     End Sub
 
     Private Sub ButtonRole_Click(sender As Object, e As RoutedEventArgs)
         ' RoleView'i yükleyecek butonun tıklanma olayı
-        MainFrame.Content = New RoleView()
+        'MainFrame.Content = New RoleView()
     End Sub
 
     Private Sub ButtonEmployee_Click(sender As Object, e As RoutedEventArgs)
-        MainFrame.Content = New EmployeeView()
+        'MainFrame.Content = New EmployeeView()
 
     End Sub
 

@@ -415,7 +415,108 @@
                 </Border>
 
                 <Grid Grid.Column="1">
-                    <Border
+
+                    <ItemsControl ItemsSource="{Binding PageDataList}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Expander Header="{Binding PageName}" IsExpanded="False">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding LowerPages}" />
+                                        <!--  Diğer PageModel özellikleri için gerekirse burada ekleyebilirsiniz  -->
+
+                                        <!--  Alt sayfalar için ikinci bir Expander  -->
+                                        <Expander Header="Lower Pages" IsExpanded="False">
+                                            <ItemsControl ItemsSource="{Binding LowerPages}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Expander Header="{Binding PageName}" IsExpanded="False">
+                                                            <!--  Alt sayfa içeriği  -->
+                                                            <StackPanel>
+                                                                <TextBlock Text="{Binding Content}" />
+                                                                <!--  Diğer PageModel özellikleri için gerekirse burada ekleyebilirsiniz  -->
+                                                            </StackPanel>
+                                                        </Expander>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Expander>
+                                    </StackPanel>
+                                </Expander>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <TreeView Background="#000000" ItemsSource="{Binding PageDataList}">
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding LowerPages}">
+                                <DockPanel Margin="5,5">
+                                    <fa:ImageAwesome
+                                        Width="19"
+                                        Height="16"
+                                        Margin="10,0"
+                                        Foreground="white"
+                                        Icon="home" />
+                                    <TextBlock
+                                        FontSize="15"
+                                        FontWeight="DemiBold"
+                                        Foreground="white"
+                                        Text="{Binding PageName}" />
+                                </DockPanel>
+
+                                <!--  Diğer PageModel özellikleri için gerekirse burada ekleyebilirsiniz  -->
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+
+
+
+                    <!--<dxa:AccordionControl
+    Margin="0,0"
+    Background="#000000"
+    ExpandMode="Multiple">
+                        <dxa:AccordionItem
+        Margin="0,5"
+        FontSize="20"
+        Foreground="White"
+        Header="+Home"
+        IsExpanded="True">
+                            <DockPanel Margin="5,5">
+                                <fa:ImageAwesome
+                Width="19"
+                Height="16"
+                Margin="10,0"
+                Foreground="white"
+                Icon="home" />
+                                <Button
+                Padding="0"
+                HorizontalAlignment="Left"
+                Background="Transparent"
+                BorderThickness="0"
+                Click="ButtonHome_Click"
+                Content="Home"
+                FontSize="15"
+                Foreground="white" />
+                            </DockPanel>
+                            <DockPanel Margin="5,5">
+                                <fa:ImageAwesome
+                Width="19"
+                Height="16"
+                Margin="10,0"
+                Foreground="white"
+                Icon="Download" />
+                                <Button
+                Padding="0"
+                HorizontalAlignment="Left"
+                Background="Transparent"
+                BorderThickness="0"
+                Content="Downloads"
+                FontSize="15"
+                Foreground="white" />
+                            </DockPanel>
+                        </dxa:AccordionItem>-->
+
+
+                    <!--<Border
                         Margin="10"
                         Background="#000000"
                         CornerRadius="15">
@@ -425,7 +526,7 @@
                             Margin="10"
                             Foreground="White"
                             NavigationUIVisibility="Hidden" />
-                    </Border>
+                    </Border>-->
                 </Grid>
             </Grid>
         </Grid>
