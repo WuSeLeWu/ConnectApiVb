@@ -88,7 +88,7 @@ Public Class ApiConnect
         _client.DefaultRequestHeaders.Authorization = New AuthenticationHeaderValue("Bearer", token)
 
         Dim jsonData As String = JsonConvert.SerializeObject(data)
-        Dim content As New StringContent(jsonData, Encoding.UTF8, "application/json")
+        Dim content As New StringContent(jsonData.ToString(), Encoding.UTF8, "application/json")
 
         Dim response As HttpResponseMessage = Await _client.PutAsync(apiUrl, content)
 

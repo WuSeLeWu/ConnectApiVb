@@ -3,50 +3,74 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:local="clr-namespace:deneme"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid Margin="0,10,0,0">
+    <!--<Grid Margin="10,10,10,10">
         <Label
-            Margin="10,29,35,0"
+            VerticalAlignment="Top"
             Content="Employee"
             FontSize="28"
             Foreground="#DADADA" />
-        <Button
-            x:Name="btnLoad"
-            Width="100"
-            Margin="0,66,35,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Background="#0BCDFF"
-            Click="Btn_Load_Click"
-            Content="Load"
-            Foreground="White"
-            RenderTransformOrigin="0.484,-5.774" />
 
-        <Button
+    -->
+    <!--<Button
             x:Name="btnOpenEmployee"
             Width="100"
-            Margin="0,66,170,0"
+            Margin="0,66,35,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Background="green"
             Click="btnOpenEmployee_Click"
             Content="Save"
-            Foreground="White"
-            RenderTransformOrigin="0.484,-5.774" />
+            Foreground="White" />-->
+    <!--
 
         <Border
-            Margin="10,93,35,10"
+            Width="100"
+            Height="30"
+            Margin="0,55,0,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="White"
+            CornerRadius="10">
+            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <fa:ImageAwesome Width="15" Icon="Plus" />
+                <Button
+                    x:Name="btnOpenEmployee"
+                    Width="50"
+                    Height="30"
+                    Margin="0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Click="btnOpenEmployee_Click"
+                    Content="Save"
+                    FontSize="15"
+                    FontWeight="bold"
+                    Foreground="Black" />
+            </DockPanel>
+
+        </Border>
+
+        <Border
+            Margin="10,93,0,10"
             Padding="10"
             Background="white"
             CornerRadius="10">
             <DataGrid
                 xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit"
                 x:Name="dg"
-                Margin="0,10,0,0"
+                MinHeight="500"
+                VerticalAlignment="Top"
                 AutoGenerateColumns="False"
                 Background="White"
                 BorderThickness="0"
@@ -59,7 +83,7 @@
                 ScrollViewer.HorizontalScrollBarVisibility="Auto">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#1C2F46" />
+                        <Setter Property="Background" Value="#000000" />
                         <Setter Property="Foreground" Value="White" />
                         <Setter Property="Padding" Value="10,10,10,10" />
                         <Setter Property="FontFamily" Value="Montserrat" />
@@ -70,16 +94,15 @@
                     <Style TargetType="DataGridRow">
                         <Setter Property="Background" Value="Transparent" />
                         <Setter Property="Margin" Value="10,2,0,10" />
-                        <!--  Satır arka plan rengi  -->
+
                         <Setter Property="Foreground" Value="#121F2C" />
 
-                        <!--  Satır metin rengi  -->
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="Background" Value="Transparent" />
-                                <!--  Seçili satır arka plan rengi  -->
+
                                 <Setter Property="Foreground" Value="#121F2C" />
-                                <!--  Seçili satır metin rengi  -->
+
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -134,5 +157,74 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Border>
+    </Grid>-->
+
+    <Grid Margin="10,10,10,10">
+
+        <Label
+            VerticalAlignment="Top"
+            Content="Employee"
+            FontSize="28"
+            Foreground="#DADADA" />
+
+        <Border
+            Width="100"
+            Height="30"
+            Margin="0,55,0,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="White"
+            CornerRadius="10">
+            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <fa:ImageAwesome Width="15" Icon="Plus" />
+                <Button
+                    x:Name="btnOpenEmployee"
+                    Width="50"
+                    Height="30"
+                    Margin="0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Click="btnOpenEmployee_Click"
+                    Content="Save"
+                    FontSize="15"
+                    FontWeight="bold"
+                    Foreground="Black" />
+            </DockPanel>
+
+        </Border>
+
+        <Border
+            Margin="10,93,0,10"
+            Padding="10"
+            Background="white"
+            CornerRadius="10">
+            <dxg:GridControl
+                x:Name="dg"
+                AutoGenerateColumns="AddNew"
+                ItemsSource="{Binding Users}">
+                <!--  NewItemRowPosition="Top"  -->
+                <dxg:GridControl.View>
+                    <dxg:TableView
+                        RowUpdated="TableView_RowUpdated"
+                        ShowUpdateRowButtons="OnCellEditorOpen"
+                        ValidateRowCommand="{Binding ValidateRowCommand}"
+                        ValidateRowDeletionCommand="{Binding ValidateRowDeletionCommand}" />
+
+                </dxg:GridControl.View>
+                <!--<dxg:GridColumn Binding="{Binding Path=Id}" FieldName="Id" />
+                <dxg:GridColumn Binding="{Binding Path=Name}" FieldName="Name" />
+                <dxg:GridColumn Binding="{Binding Path=Surname}" FieldName="Surname" />
+                <dxg:GridColumn Binding="{Binding Path=Username}" FieldName="Username" />
+                <dxg:GridColumn Binding="{Binding Path=Email}" FieldName="Email" />
+                <dxg:GridColumn Binding="{Binding Path=Phone}" FieldName="Phone" />
+                <dxg:GridColumn Binding="{Binding Path=Gender}" FieldName="Gender" />
+                <dxg:GridColumn Binding="{Binding Path=DepartmentName}" FieldName="DepartmentName" />-->
+
+            </dxg:GridControl>
+        </Border>
     </Grid>
+
 </UserControl>

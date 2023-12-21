@@ -31,6 +31,7 @@ Public Class EmployeeVM
         If apiResponse.success Then
             For Each employee As EmployeeModel In apiResponse.data
                 Users.Add(employee)
+
             Next
         End If
     End Sub

@@ -11,10 +11,6 @@ Public Class RoleView
         DataContext = viewModel
     End Sub
 
-    Private Sub btnLoad_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-        viewModel.GetRoles()
-    End Sub
-
     Private Async Sub btnSave_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
         Dim roleInstance As New RoleModel With {
         .Id = Convert.ToInt64(txtId.Text),

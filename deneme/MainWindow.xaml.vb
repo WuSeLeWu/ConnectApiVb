@@ -7,7 +7,10 @@ Imports System.Windows.Controls
 Public Class MainWindow
     Public Sub New()
         InitializeComponent()
+
     End Sub
+
+
 
     Private Sub ButtonHome_Click(sender As Object, e As RoutedEventArgs)
         ' HomeView'i yükleyecek butonun tıklanma olayı
@@ -18,7 +21,6 @@ Public Class MainWindow
     Private Sub ButtonRole_Click(sender As Object, e As RoutedEventArgs)
         ' RoleView'i yükleyecek butonun tıklanma olayı
         MainFrame.Content = New RoleView()
-
     End Sub
 
     Private Sub ButtonEmployee_Click(sender As Object, e As RoutedEventArgs)
@@ -47,4 +49,5 @@ Public Class MainWindow
             WindowState = WindowState.Maximized
         End If
     End Sub
+
 End Class
