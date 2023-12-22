@@ -53,4 +53,22 @@ Public Class MainWindow
         End If
     End Sub
 
+    Private Sub PageNavigation_Click(sender As Object, e As RoutedEventArgs)
+        Dim clickedButton As Button = CType(sender, Button)
+        Dim clickedPage As PageModel = CType(clickedButton.DataContext, PageModel)
+
+        Dim userControlName As String = clickedPage.Url ' UserControl adını aldık
+
+        ' UserControl'ün türünü almak için Reflection kullanma
+        Dim userControlType As Type = Type.GetType("deneme.Views" & userControlName) ' Namespace, UserControl'lerin bulunduğu yerdir
+
+        If userControlType IsNot Nothing Then
+            ' UserControl'ün örneğini oluşturup MainFrame.Content'e atama
+            Dim userControlInstance As Object = Activator.CreateInstance(userControlType)
+            MainFrame.Content = userControlInstance
+        Else
+            MessageBox.Show("Bulunamadı!!!")
+        End If
+    End Sub
+
 End Class
