@@ -13,24 +13,6 @@ Public Class MainWindow
         mainViewModel.LoadPagesFromAPI()
     End Sub
 
-
-
-    Private Sub ButtonHome_Click(sender As Object, e As RoutedEventArgs)
-        ' HomeView'i yükleyecek butonun tıklanma olayı
-        'MainFrame.Content = New HomeView()
-
-    End Sub
-
-    Private Sub ButtonRole_Click(sender As Object, e As RoutedEventArgs)
-        ' RoleView'i yükleyecek butonun tıklanma olayı
-        'MainFrame.Content = New RoleView()
-    End Sub
-
-    Private Sub ButtonEmployee_Click(sender As Object, e As RoutedEventArgs)
-        'MainFrame.Content = New EmployeeView()
-
-    End Sub
-
     Private Sub btnMinimize_Click(sender As Object, e As RoutedEventArgs)
         WindowState = WindowState.Minimized
     End Sub
@@ -60,15 +42,18 @@ Public Class MainWindow
         Dim userControlName As String = clickedPage.Url ' UserControl adını aldık
 
         ' UserControl'ün türünü almak için Reflection kullanma
-        Dim userControlType As Type = Type.GetType("deneme.Views" & userControlName) ' Namespace, UserControl'lerin bulunduğu yerdir
+        Dim userControlType As Type = Type.GetType("deneme." & userControlName) ' Namespace, UserControl'lerin bulunduğu yerdir
 
         If userControlType IsNot Nothing Then
             ' UserControl'ün örneğini oluşturup MainFrame.Content'e atama
             Dim userControlInstance As Object = Activator.CreateInstance(userControlType)
             MainFrame.Content = userControlInstance
         Else
-            MessageBox.Show("Bulunamadı!!!")
+
         End If
     End Sub
+
+
+
 
 End Class

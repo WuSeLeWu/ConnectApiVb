@@ -61,15 +61,11 @@
                     <Border Grid.Column="0">
                         <ToggleButton
                             x:Name="btnMenu"
-                            Width="30"
-                            Height="30"
-                            Margin="28,0,0,0"
+                            Margin="15,0,0,0"
                             HorizontalAlignment="left"
                             VerticalAlignment="Center"
-                            Background="white"
+                            Background="Transparent"
                             BorderThickness="0"
-                            Content="-"
-                            FontSize="20"
                             Foreground="black">
                             <ToggleButton.Triggers>
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
@@ -80,7 +76,7 @@
                                                 Storyboard.TargetName="gridMenu"
                                                 Storyboard.TargetProperty="Width"
                                                 From="300"
-                                                To="80"
+                                                To="73"
                                                 Duration="0:0:0.3" />
                                         </Storyboard>
                                     </BeginStoryboard>
@@ -92,13 +88,18 @@
                                                 BeginTime="0:0:0"
                                                 Storyboard.TargetName="gridMenu"
                                                 Storyboard.TargetProperty="Width"
-                                                From="80"
+                                                From="73"
                                                 To="300"
                                                 Duration="0:0:0.3" />
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </ToggleButton.Triggers>
+                            <fa:ImageAwesome
+                                Width="30"
+                                Cursor="Hand"
+                                Foreground="white"
+                                Icon="bars" />
                         </ToggleButton>
                     </Border>
                     <Border Grid.Column="1">
@@ -188,8 +189,8 @@
                                 HorizontalAlignment="Left"
                                 Orientation="Horizontal">
                                 <Border
-                                    Width="60"
-                                    Height="55"
+                                    Width="50"
+                                    Height="50"
                                     Background="White"
                                     CornerRadius="10">
                                     <Label
@@ -381,22 +382,31 @@
                                     </DockPanel>
                                 </dxa:AccordionItem>
                             </dxa:AccordionControl>-->
+
+
+
                             <TreeView
+                                x:Name="MyTreeView"
                                 Background="Transparent"
                                 BorderBrush="Transparent"
                                 BorderThickness="0"
                                 ItemsSource="{Binding PageDataList}">
                                 <TreeView.ItemContainerStyle>
                                     <Style TargetType="TreeViewItem">
-                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Background" Value="Black" />
+                                        <Setter Property="Cursor" Value="Hand" />
+
                                         <!--  Seçili öğe için arka planı belirliyor  -->
                                         <Setter Property="BorderBrush" Value="Transparent" />
                                         <Setter Property="BorderThickness" Value="0" />
                                         <Style.Triggers>
                                             <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="Background" Value="red" />
+                                                <Setter Property="Background" Value="Black" />
+                                                <Setter Property="BorderThickness" Value="0" />
+                                                <Setter Property="BorderBrush" Value="Transparent" />
                                                 <!--  Seçildiğinde arka plan rengini null olarak ayarlar  -->
                                             </Trigger>
+
                                         </Style.Triggers>
                                     </Style>
                                 </TreeView.ItemContainerStyle>
@@ -406,7 +416,7 @@
                                             <fa:ImageAwesome
                                                 Width="19"
                                                 Height="16"
-                                                Margin="10,0"
+                                                Margin="11,0,10,0"
                                                 Foreground="white"
                                                 Icon="{Binding Icon}" />
                                             <Button
@@ -418,9 +428,19 @@
                                         </DockPanel>
                                     </HierarchicalDataTemplate>
                                 </TreeView.ItemTemplate>
+                                <TreeView.Template>
+                                    <ControlTemplate TargetType="TreeView">
+                                        <Border
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ItemsPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </TreeView.Template>
                             </TreeView>
-
                         </StackPanel>
+
 
 
                     </Grid>

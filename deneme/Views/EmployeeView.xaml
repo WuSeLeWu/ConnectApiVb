@@ -12,154 +12,8 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+
     <!--<Grid Margin="10,10,10,10">
-        <Label
-            VerticalAlignment="Top"
-            Content="Employee"
-            FontSize="28"
-            Foreground="#DADADA" />
-
-    -->
-    <!--<Button
-            x:Name="btnOpenEmployee"
-            Width="100"
-            Margin="0,66,35,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Background="green"
-            Click="btnOpenEmployee_Click"
-            Content="Save"
-            Foreground="White" />-->
-    <!--
-
-        <Border
-            Width="100"
-            Height="30"
-            Margin="0,55,0,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Background="White"
-            CornerRadius="10">
-            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <fa:ImageAwesome Width="15" Icon="Plus" />
-                <Button
-                    x:Name="btnOpenEmployee"
-                    Width="50"
-                    Height="30"
-                    Margin="0"
-                    Padding="0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Click="btnOpenEmployee_Click"
-                    Content="Save"
-                    FontSize="15"
-                    FontWeight="bold"
-                    Foreground="Black" />
-            </DockPanel>
-
-        </Border>
-
-        <Border
-            Margin="10,93,0,10"
-            Padding="10"
-            Background="white"
-            CornerRadius="10">
-            <DataGrid
-                xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit"
-                x:Name="dg"
-                MinHeight="500"
-                VerticalAlignment="Top"
-                AutoGenerateColumns="False"
-                Background="White"
-                BorderThickness="0"
-                CanUserAddRows="False"
-                ColumnWidth="*"
-                GridLinesVisibility="None"
-                HeadersVisibility="Column"
-                ItemsSource="{Binding Users}"
-                RowHeaderWidth="0"
-                ScrollViewer.HorizontalScrollBarVisibility="Auto">
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#000000" />
-                        <Setter Property="Foreground" Value="White" />
-                        <Setter Property="Padding" Value="10,10,10,10" />
-                        <Setter Property="FontFamily" Value="Montserrat" />
-                        <Setter Property="FontSize" Value="15" />
-                    </Style>
-                </DataGrid.ColumnHeaderStyle>
-                <DataGrid.RowStyle>
-                    <Style TargetType="DataGridRow">
-                        <Setter Property="Background" Value="Transparent" />
-                        <Setter Property="Margin" Value="10,2,0,10" />
-
-                        <Setter Property="Foreground" Value="#121F2C" />
-
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="Transparent" />
-
-                                <Setter Property="Foreground" Value="#121F2C" />
-
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </DataGrid.RowStyle>
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="70">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button
-                                    Width="60"
-                                    Background="blue"
-                                    BorderThickness="0"
-                                    Click="btnEdit_Click"
-                                    Content="Edit"
-                                    Foreground="white"
-                                    Tag="{Binding Id}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn
-                        Width="50"
-                        Binding="{Binding Path=Id}"
-                        Header="ID" />
-                    <DataGridTextColumn
-                        Width="100"
-                        Binding="{Binding Path=Name}"
-                        Header="Name" />
-                    <DataGridTextColumn
-                        Width="100"
-                        Binding="{Binding Path=Surname}"
-                        Header="Surname" />
-                    <DataGridTextColumn
-                        Width="100"
-                        Binding="{Binding Path=Username}"
-                        Header="Username" />
-                    <DataGridTextColumn
-                        Width="200"
-                        Binding="{Binding Path=Email}"
-                        Header="Email" />
-                    <DataGridTextColumn
-                        Width="100"
-                        Binding="{Binding Path=Phone}"
-                        Header="Phone" />
-                    <DataGridTextColumn
-                        Width="100"
-                        Binding="{Binding Path=Gender}"
-                        Header="Gender" />
-                    <DataGridTextColumn
-                        Width="200"
-                        Binding="{Binding Path=DepartmentName}"
-                        Header="DepartmentName" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </Border>
-    </Grid>-->
-
-    <Grid Margin="10,10,10,10">
 
         <Label
             VerticalAlignment="Top"
@@ -205,7 +59,6 @@
                 x:Name="dg"
                 AutoGenerateColumns="AddNew"
                 ItemsSource="{Binding Users}">
-                <!--  NewItemRowPosition="Top"  -->
                 <dxg:GridControl.View>
                     <dxg:TableView
                         RowUpdated="TableView_RowUpdated"
@@ -214,17 +67,158 @@
                         ValidateRowDeletionCommand="{Binding ValidateRowDeletionCommand}" />
 
                 </dxg:GridControl.View>
-                <!--<dxg:GridColumn Binding="{Binding Path=Id}" FieldName="Id" />
-                <dxg:GridColumn Binding="{Binding Path=Name}" FieldName="Name" />
-                <dxg:GridColumn Binding="{Binding Path=Surname}" FieldName="Surname" />
-                <dxg:GridColumn Binding="{Binding Path=Username}" FieldName="Username" />
-                <dxg:GridColumn Binding="{Binding Path=Email}" FieldName="Email" />
-                <dxg:GridColumn Binding="{Binding Path=Phone}" FieldName="Phone" />
-                <dxg:GridColumn Binding="{Binding Path=Gender}" FieldName="Gender" />
-                <dxg:GridColumn Binding="{Binding Path=DepartmentName}" FieldName="DepartmentName" />-->
-
             </dxg:GridControl>
         </Border>
+    </Grid>-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Left Section  -->
+        <Border
+            Padding="30"
+            Background="#FFD500"
+            CornerRadius="25 0 0 25">
+            <StackPanel VerticalAlignment="Center">
+                <Image
+                    Width="160"
+                    Height="160"
+                    Margin="0,0,0,40"
+                    Source="/Images/img.png" />
+
+                <TextBlock
+                    FontSize="28"
+                    FontWeight="SemiBold"
+                    Foreground="#363636"
+                    Text="Let's get you set up"
+                    TextAlignment="Center" />
+                <TextBlock
+                    Margin="0,20,0,20"
+                    FontSize="16"
+                    Foreground="#363636"
+                    Text="it should only take a couple of minutes to pair with your watch"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+
+                <Button Style="{StaticResource buttonBlack}">
+                    <fa:ImageAwesome
+                        Width="25"
+                        Height="25"
+                        Margin="3,0,0,0"
+                        Foreground="#FFD500"
+                        Icon="AngleRight" />
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <!--  Input Section  -->
+        <Border
+            Grid.Column="1"
+            Padding="20"
+            Background="#ffffff"
+            CornerRadius="0 25 25 0"
+            MouseDown="Border_MouseDown">
+            <Grid>
+
+                <Grid
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Name" />
+                    <TextBlock Grid.Row="1" Text="Family" />
+                    <TextBlock Grid.Row="3" Text="Date of Birth" />
+                    <TextBlock Grid.Row="4" Text="Email" />
+                    <TextBlock Grid.Row="5" Text="Mobile" />
+                    <TextBlock Grid.Row="6" Text="Membership" />
+
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="Karim" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="Doe" />
+                    <TextBox
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Text="01/02/1980" />
+                    <TextBox
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Text="KarimDoe@email.com" />
+                    <TextBox
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Text="+91 9765 43210" />
+
+                    <StackPanel
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="0,10"
+                        Orientation="Horizontal">
+                        <fa:ImageAwesome Width="20" Icon="Male" />
+                        <fa:ImageAwesome Width="20" Icon="Female" />
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Margin="0,10"
+                        Orientation="Horizontal">
+                        <fa:ImageAwesome
+                            Width="20"
+                            Foreground="Gray"
+                            Icon="CreditCard" />
+                        <fa:ImageAwesome
+                            Width="20"
+                            Foreground="Silver"
+                            Icon="CreditCard" />
+                        <fa:ImageAwesome
+                            Width="20"
+                            Foreground="gold"
+                            Icon="CreditCard" />
+                    </StackPanel>
+
+                    <Grid
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Margin="0,40,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Margin="0,0,10,0" Content="Cancel" />
+
+                        <Button
+                            Grid.Column="1"
+                            Margin="10,0,0,0"
+                            Content="Save" />
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Border>
+
     </Grid>
 
 </UserControl>
