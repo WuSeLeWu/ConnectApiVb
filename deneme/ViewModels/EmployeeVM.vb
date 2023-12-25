@@ -62,8 +62,19 @@ Public Class EmployeeVM
         End If
     End Function
 
+    Public Async Function LoadEmployeeInformation(id As Long) As Task(Of ResponseModel(Of EmployeeModel))
+        Dim response As String = Await apiService.FetchDataAsync($"Employee/GetById/{id}")
+        Dim apiResponse = JsonConvert.DeserializeObject(Of ResponseModel(Of EmployeeModel))(response)
+
+        Return apiResponse
+    End Function
+
     Public Async Function Save(ByVal role As EmployeeCreate) As Task
         Await apiService.SaveDataAsync("Employee/Create", role)
+    End Function
+
+    Public Async Function Update(ByVal role As EmployeeUpdate) As Task
+        Await apiService.UpdateDataAsync("Employee/Update", role)
     End Function
 
     Public Sub OpenWindowCommand() Implements IStatusOkSub.OpenWindowCommand

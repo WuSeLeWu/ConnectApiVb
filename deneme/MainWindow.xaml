@@ -448,13 +448,13 @@
 
                 <Grid Grid.Column="1">
                     <Border
-                        Margin="10"
+                        Margin="10,10,20,30"
                         Background="#000000"
                         CornerRadius="15">
                         <Frame
                             x:Name="MainFrame"
                             Grid.Column="1"
-                            Margin="10"
+                            Margin="0"
                             Foreground="White"
                             NavigationUIVisibility="Hidden" />
                     </Border>

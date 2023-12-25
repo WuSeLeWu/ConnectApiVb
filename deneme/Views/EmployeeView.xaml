@@ -9,7 +9,7 @@
     xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:local="clr-namespace:deneme"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
+    d:DesignHeight="850"
     d:DesignWidth="800"
     mc:Ignorable="d">
 
@@ -72,153 +72,263 @@
     </Grid>-->
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="370" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <!--  Left Section  -->
         <Border
+            Grid.Column="1"
             Padding="30"
-            Background="#FFD500"
-            CornerRadius="25 0 0 25">
-            <StackPanel VerticalAlignment="Center">
-                <Image
-                    Width="160"
-                    Height="160"
-                    Margin="0,0,0,40"
-                    Source="/Images/img.png" />
+            Background="#000000"
+            CornerRadius="0 15 15 0">
+            <dxg:GridControl
+                x:Name="dg"
+                AutoGenerateColumns="AddNew"
+                ItemsSource="{Binding Users}">
+                <dxg:GridControl.View>
+                    <dxg:TableView
+                        RowUpdated="TableView_RowUpdated"
+                        ShowUpdateRowButtons="OnCellEditorOpen"
+                        ValidateRowCommand="{Binding ValidateRowCommand}"
+                        ValidateRowDeletionCommand="{Binding ValidateRowDeletionCommand}" />
 
-                <TextBlock
-                    FontSize="28"
-                    FontWeight="SemiBold"
-                    Foreground="#363636"
-                    Text="Let's get you set up"
-                    TextAlignment="Center" />
-                <TextBlock
-                    Margin="0,20,0,20"
-                    FontSize="16"
-                    Foreground="#363636"
-                    Text="it should only take a couple of minutes to pair with your watch"
-                    TextAlignment="Center"
-                    TextWrapping="Wrap" />
-
-                <Button Style="{StaticResource buttonBlack}">
-                    <fa:ImageAwesome
-                        Width="25"
-                        Height="25"
-                        Margin="3,0,0,0"
-                        Foreground="#FFD500"
-                        Icon="AngleRight" />
-                </Button>
-            </StackPanel>
+                </dxg:GridControl.View>
+            </dxg:GridControl>
         </Border>
 
         <!--  Input Section  -->
-        <Border
-            Grid.Column="1"
-            Padding="20"
-            Background="#ffffff"
-            CornerRadius="0 25 25 0"
-            MouseDown="Border_MouseDown">
-            <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Border
+                Grid.Column="0"
+                Padding="20"
+                Background="#ffffff"
+                CornerRadius="15 0 0 15">
 
-                <Grid
-                    Margin="0,10,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <dxe:TextEdit
+                            x:Name="txtInformation"
+                            Grid.Column="0"
+                            Width="auto"
+                            NullText="Enter your Identity Number" />
+                        <Button
+                            Grid.Column="1"
+                            Height="34"
+                            HorizontalAlignment="Right"
+                            Background="#767676"
+                            BorderThickness="0"
+                            Click="Information_Click"
+                            Content="Get Information"
+                            Foreground="white" />
+                    </Grid>
 
-                    <TextBlock Grid.Row="0" Text="Name" />
-                    <TextBlock Grid.Row="1" Text="Family" />
-                    <TextBlock Grid.Row="3" Text="Date of Birth" />
-                    <TextBlock Grid.Row="4" Text="Email" />
-                    <TextBlock Grid.Row="5" Text="Mobile" />
-                    <TextBlock Grid.Row="6" Text="Membership" />
 
-                    <TextBox
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Text="Karim" />
-                    <TextBox
+                    <Grid
+                        x:Name="gridForm"
                         Grid.Row="1"
-                        Grid.Column="1"
-                        Text="Doe" />
-                    <TextBox
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        Text="01/02/1980" />
-                    <TextBox
-                        Grid.Row="4"
-                        Grid.Column="1"
-                        Text="KarimDoe@email.com" />
-                    <TextBox
-                        Grid.Row="5"
-                        Grid.Column="1"
-                        Text="+91 9765 43210" />
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                    <StackPanel
-                        Grid.Row="2"
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            Grid.Row="0"
+                            Style="{StaticResource text}"
+                            Text="Company Name" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Style="{StaticResource text}"
+                            Text="Department Name" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Style="{StaticResource text}"
+                            Text="Name" />
+                        <TextBlock
+                            Grid.Row="3"
+                            Style="{StaticResource text}"
+                            Text="Surname" />
+                        <TextBlock
+                            Grid.Row="4"
+                            Style="{StaticResource text}"
+                            Text="Phone Number" />
+                        <TextBlock
+                            Grid.Row="5"
+                            Style="{StaticResource text}"
+                            Text="Identity Number" />
+                        <TextBlock
+                            Grid.Row="6"
+                            Style="{StaticResource text}"
+                            Text="Birth Of Year" />
+                        <TextBlock
+                            Grid.Row="8"
+                            Style="{StaticResource text}"
+                            Text="Username" />
+                        <TextBlock
+                            Grid.Row="9"
+                            Style="{StaticResource text}"
+                            Text="Email" />
+                        <TextBlock
+                            Grid.Row="10"
+                            Style="{StaticResource text}"
+                            Text="Address" />
+
+                        <ComboBox
+                            x:Name="companyBox"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            DisplayMemberPath="Name"
+                            ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"
+                            ItemsSource="{Binding Companies}" />
+                        <ComboBox
+                            x:Name="departmentBox"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            DisplayMemberPath="Name"
+                            ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"
+                            ItemsSource="{Binding Departments}" />
+
+                        <dxe:TextEdit
+                            x:Name="txtName"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            NullText="Name" />
+                        <dxe:TextEdit
+                            x:Name="txtSurname"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            NullText="Surname" />
+                        <dxe:TextEdit
+                            x:Name="txtPhone"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            NullText="(555) 555 55 55" />
+                        <dxe:TextEdit
+                            x:Name="txtIdentity"
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            NullText="Identity Number" />
+                        <dxe:TextEdit
+                            x:Name="txtBirthYear"
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            NullText="01/01/2023" />
+
+                        <!--<StackPanel
+                        Grid.Row="7"
                         Grid.Column="1"
                         Margin="0,10"
                         Orientation="Horizontal">
                         <fa:ImageAwesome Width="20" Icon="Male" />
                         <fa:ImageAwesome Width="20" Icon="Female" />
-                    </StackPanel>
-
-                    <StackPanel
-                        Grid.Row="6"
-                        Grid.Column="1"
-                        Margin="0,10"
-                        Orientation="Horizontal">
-                        <fa:ImageAwesome
-                            Width="20"
-                            Foreground="Gray"
-                            Icon="CreditCard" />
-                        <fa:ImageAwesome
-                            Width="20"
-                            Foreground="Silver"
-                            Icon="CreditCard" />
-                        <fa:ImageAwesome
-                            Width="20"
-                            Foreground="gold"
-                            Icon="CreditCard" />
-                    </StackPanel>
-
-                    <Grid
-                        Grid.Row="7"
-                        Grid.Column="1"
-                        Margin="0,40,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Button Margin="0,0,10,0" Content="Cancel" />
-
-                        <Button
+                    </StackPanel>-->
+                        <StackPanel
+                            Grid.Row="7"
                             Grid.Column="1"
-                            Margin="10,0,0,0"
-                            Content="Save" />
+                            Margin="0,10"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                            <RadioButton x:Name="male" Margin="0,0,5,0">
+                                <fa:ImageAwesome Width="19" Icon="Male" />
+                            </RadioButton>
+                            <RadioButton x:Name="female" Margin="5,0,0,0">
+                                <fa:ImageAwesome Width="23" Icon="Female" />
+                            </RadioButton>
+                        </StackPanel>
+
+                        <dxe:TextEdit
+                            x:Name="txtUsername"
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            NullText="Username" />
+                        <dxe:TextEdit
+                            x:Name="txtMail"
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            NullText="ws@ws.com" />
+                        <dxe:TextEdit
+                            x:Name="txtAddress"
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            Height="100"
+                            VerticalContentAlignment="Top"
+                            AcceptsReturn="True"
+                            NullText="Address"
+                            TextWrapping="Wrap" />
+                        <Grid
+                            Grid.Row="12"
+                            Grid.Column="1"
+                            Margin="0,20,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button
+                                Margin="0,0,10,0"
+                                Click="BtnClear_Click"
+                                Content="Clear" />
+
+                            <Button
+                                Grid.Column="1"
+                                Margin="10,0,0,0"
+                                Click="btnSave_Click"
+                                Content="Save" />
+                        </Grid>
+
+                        <TextBlock
+                            x:Name="txtActive"
+                            Grid.Row="11"
+                            Style="{StaticResource text}"
+                            Text="Is Active?"
+                            Visibility="Collapsed" />
+
+                        <ComboBox
+                            x:Name="activeBox"
+                            Grid.Row="11"
+                            Grid.Column="1"
+                            ItemContainerStyle="{StaticResource CustomComboBoxItemStyle}"
+                            Visibility="Collapsed">
+                            <ComboBoxItem Content="Active" />
+                            <ComboBoxItem Content="Passive" />
+                        </ComboBox>
+
+
+                        <dxe:TextEdit
+                            x:Name="txtId"
+                            Text="0"
+                            Visibility="Hidden" />
+
                     </Grid>
-
                 </Grid>
-            </Grid>
-        </Border>
-
+            </Border>
+        </ScrollViewer>
     </Grid>
 
 </UserControl>

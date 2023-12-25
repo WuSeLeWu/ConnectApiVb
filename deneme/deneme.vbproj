@@ -28,6 +28,7 @@
     <PackageReference Include="DevExpress.Wpf.Core" Version="23.1.6" />
     <PackageReference Include="devexpress.wpf.grid.core" Version="23.1.6" />
     <PackageReference Include="devexpress.wpf.layoutcontrol" Version="23.1.6" />
+    <PackageReference Include="devexpress.wpf.spreadsheet" Version="23.1.6" />
     <PackageReference Include="DevExpress.Wpf.Themes.All" Version="23.1.6" />
     <PackageReference Include="DevExpress.Xpo" Version="23.1.6" />
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />

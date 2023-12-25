@@ -91,6 +91,10 @@
             "devexpress.wpf.layoutcontrol": {
               "target": "Package",
               "version": "[23.1.6, )"
+            },
+            "devexpress.wpf.spreadsheet": {
+              "target": "Package",
+              "version": "[23.1.6, )"
             }
           },
           "imports": [
