@@ -11,15 +11,14 @@ Public Class EmployeeVM
     Public Property Users As ObservableCollection(Of EmployeeModel)
     Public Property Companies As ObservableCollection(Of CompanyModel)
     Public Property Departments As ObservableCollection(Of DepartmentModel)
+    Public Property RequestsByEmployee As ObservableCollection(Of RequestModel)
 
     Public Sub New()
         apiService = New ApiConnect()
         Users = New ObservableCollection(Of EmployeeModel)()
         Companies = New ObservableCollection(Of CompanyModel)()
         Departments = New ObservableCollection(Of DepartmentModel)()
-        LoadUsers()
-        LoadCompanies()
-        LoadDepartments()
+        RequestsByEmployee = New ObservableCollection(Of RequestModel)()
     End Sub
 
     Public Async Sub LoadUsers()
@@ -58,6 +57,19 @@ Public Class EmployeeVM
         If apiResponse.success Then
             For Each department In apiResponse.data
                 Departments.Add(department)
+            Next
+        End If
+    End Function
+
+    Public Async Function LoadRequestByEmployeeId(id As Long) As Task
+        RequestsByEmployee.Clear()
+
+        Dim response As String = Await apiService.FetchDataAsync($"Request/GetByEmployeeId/{id}")
+        Dim apiResponse = JsonConvert.DeserializeObject(Of ResponseModel(Of List(Of RequestModel)))(response)
+
+        If apiResponse.success Then
+            For Each department In apiResponse.data
+                RequestsByEmployee.Add(department)
             Next
         End If
     End Function

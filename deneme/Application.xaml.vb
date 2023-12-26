@@ -1,3 +1,6 @@
-﻿Class Application
+﻿Imports System.Windows.Forms
+
+Class Application
+
 
 End Class

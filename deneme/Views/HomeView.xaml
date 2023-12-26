@@ -9,13 +9,13 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <StackPanel>
-        <Label Content="{Binding CompanyId}" Foreground="Black" />
-        <Label Content="{Binding Token}" Foreground="Black" />
+    <StackPanel Margin="20">
+        <Label Content="{Binding CompanyId}" Foreground="white" />
+        <Label Content="{Binding Token}" Foreground="white" />
         <ItemsControl ItemsSource="{Binding RolId}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding}" Foreground="Black" />
+                    <Label Content="{Binding}" Foreground="White" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

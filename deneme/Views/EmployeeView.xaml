@@ -79,13 +79,13 @@
         <!--  Left Section  -->
         <Border
             Grid.Column="1"
-            Padding="30"
-            Background="#000000"
+            Padding="10"
+            Background="white"
             CornerRadius="0 15 15 0">
-            <dxg:GridControl
+            <!--<dxg:GridControl
                 x:Name="dg"
                 AutoGenerateColumns="AddNew"
-                ItemsSource="{Binding Users}">
+                ItemsSource="{Binding RequestsByEmployee}">
                 <dxg:GridControl.View>
                     <dxg:TableView
                         RowUpdated="TableView_RowUpdated"
@@ -93,6 +93,48 @@
                         ValidateRowCommand="{Binding ValidateRowCommand}"
                         ValidateRowDeletionCommand="{Binding ValidateRowDeletionCommand}" />
 
+                </dxg:GridControl.View>
+            </dxg:GridControl>-->
+
+            <dxg:GridControl
+                Name="grid"
+                Background="white"
+                ItemsSource="{Binding RequestsByEmployee}"
+                ShowBorder="True">
+
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn
+                        FieldName="ApprovingEmployeeName"
+                        Header="Approved Employee"
+                        ReadOnly="True" />
+                    <dxg:GridColumn
+                        FieldName="ApprovingEmployeeSurname"
+                        Header="Approved Employee"
+                        ReadOnly="True" />
+                    <dxg:GridColumn
+                        FieldName="MeasuringUnitName"
+                        Header="Measuring Unit"
+                        ReadOnly="True" />
+                    <dxg:GridColumn
+                        FieldName="CreatedDate"
+                        Header="Create Date"
+                        ReadOnly="True" />
+                    <dxg:GridColumn
+                        FieldName="Quantity"
+                        Header="Quantity"
+                        ReadOnly="True" />
+                    <dxg:GridColumn
+                        FieldName="Details"
+                        Header="Details"
+                        ReadOnly="True" />
+                    <dxg:GridColumn
+                        FieldName="State"
+                        Header="State"
+                        ReadOnly="True" />
+                </dxg:GridControl.Columns>
+
+                <dxg:GridControl.View>
+                    <dxg:CardView CardHeaderBinding="{Binding Path=ProductName}" />
                 </dxg:GridControl.View>
             </dxg:GridControl>
         </Border>
@@ -122,9 +164,8 @@
                             NullText="Enter your Identity Number" />
                         <Button
                             Grid.Column="1"
-                            Height="34"
                             HorizontalAlignment="Right"
-                            Background="#767676"
+                            Background="#394867"
                             BorderThickness="0"
                             Click="Information_Click"
                             Content="Get Information"
@@ -238,7 +279,7 @@
                             x:Name="txtBirthYear"
                             Grid.Row="6"
                             Grid.Column="1"
-                            NullText="01/01/2023" />
+                            NullText="1999" />
 
                         <!--<StackPanel
                         Grid.Row="7"
@@ -292,14 +333,18 @@
 
                             <Button
                                 Margin="0,0,10,0"
+                                Background="#394867"
                                 Click="BtnClear_Click"
-                                Content="Clear" />
+                                Content="Clear"
+                                Foreground="white" />
 
                             <Button
                                 Grid.Column="1"
                                 Margin="10,0,0,0"
+                                Background="#557571"
                                 Click="btnSave_Click"
-                                Content="Save" />
+                                Content="Save"
+                                Foreground="white" />
                         </Grid>
 
                         <TextBlock

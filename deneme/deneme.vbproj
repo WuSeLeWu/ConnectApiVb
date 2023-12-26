@@ -21,6 +21,7 @@
 
 	<ItemGroup>
 		<Resource Include="Images\roleSave.png" />
+		<Resource Include="Images\wwf_logo.ico" />
 	</ItemGroup>
 
   <ItemGroup>

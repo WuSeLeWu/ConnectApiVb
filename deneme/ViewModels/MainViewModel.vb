@@ -28,6 +28,16 @@ Public Class MainViewModel
         End Set
     End Property
 
+    Public Property Tag As String
+        Get
+            Dim eposta As String = _repo.SessionManager.Eposta
+            Return eposta.Substring(0, 2).ToUpper()
+        End Get
+        Set(value As String)
+            _repo.SessionManager.Eposta = value
+        End Set
+    End Property
+
 
     '**********************************************
 

@@ -17,6 +17,8 @@ Public Class EmployeeView
         InitializeComponent()
         apiService = New ApiConnect()
         viewModel = New EmployeeVM()
+        viewModel.LoadCompanies()
+        viewModel.LoadDepartments()
         DataContext = viewModel
     End Sub
 
@@ -50,22 +52,21 @@ Public Class EmployeeView
     End Sub
 
     Private Async Sub btnSave_Click(sender As Object, e As RoutedEventArgs)
-        Dim selectedCompany As CompanyModel = TryCast(companyBox.SelectedItem, CompanyModel)
-        Dim selectedDepartment As DepartmentModel = TryCast(departmentBox.SelectedItem, DepartmentModel)
-        Dim gender As Integer = 0
 
-        If male.IsChecked Then
-            gender = 0
-        ElseIf female.IsChecked Then
-            gender = 1
-        End If
+        If Convert.ToInt64(txtId.Text) = 0 Then
+            Dim selectedCompany As CompanyModel = TryCast(companyBox.SelectedItem, CompanyModel)
+            Dim selectedDepartment As DepartmentModel = TryCast(departmentBox.SelectedItem, DepartmentModel)
+            Dim gender As Integer = 0
+            If selectedCompany IsNot Nothing Then
 
-        If selectedCompany IsNot Nothing Then
-            Dim companyId As Integer = selectedCompany.Id
-            Dim departmentId As Integer = selectedDepartment.Id
+                Dim companyId As Integer = selectedCompany.Id
+                Dim departmentId As Integer = selectedDepartment.Id
+                If male.IsChecked Then
+                    gender = 0
+                ElseIf female.IsChecked Then
+                    gender = 1
+                End If
 
-
-            If Convert.ToInt64(txtId.Text) = 0 Then
                 Dim roleInstance As New EmployeeCreate With {
                     .Name = txtName.Text,
                     .Surname = txtSurname.Text,
@@ -82,33 +83,43 @@ Public Class EmployeeView
 
                 Await viewModel.Save(roleInstance)
             Else
-                Dim active As Boolean = False
-                Dim content As String = activeBox.SelectedItem.ToString()
+                MessageBox.Show("Company Boş Değer Döndürdü")
 
-                If content = "Active" Then
-                    active = 1 ' Eğer ComboBox'ta "Aktif" seçilmişse true yapılır
-                End If
-                Dim roleInstance As New EmployeeUpdate With {
-                        .EmployeeId = txtId.Text,
-                        .Address = txtAddress.Text,
-                        .Email = txtMail.Text,
-                        .Phone = txtPhone.Text,
-                        .Username = txtUsername.Text,
-                        .IsActive = active
-                }
-
-
-
-                Await viewModel.Update(roleInstance)
             End If
         Else
-            MessageBox.Show("Company Boş Değer Döndürdü")
+            Dim active As Boolean = False
 
+            Dim selectedContent As String = TryCast(activeBox.SelectedItem, ComboBoxItem)?.Content?.ToString()
+
+            If selectedContent = "Active" Then
+                active = True
+            End If
+
+            Dim roleInstance As New EmployeeUpdate With {
+                    .EmployeeId = txtId.Text,
+                    .Address = txtAddress.Text,
+                    .Email = txtMail.Text,
+                    .Phone = txtPhone.Text,
+                    .Username = txtUsername.Text,
+                    .IsActive = active
+            }
+
+            Await viewModel.Update(roleInstance)
         End If
+
+
     End Sub
 
     Private Async Sub Information_Click(sender As Object, e As RoutedEventArgs)
-        If Not String.IsNullOrEmpty(txtInformation.Text) AndAlso Int64.TryParse(txtInformation.Text, Nothing) Then
+        Dim inputText As String = txtInformation.Text
+
+        If String.IsNullOrEmpty(inputText) Then
+            MessageBox.Show("Lütfen bir ID numarası giriniz.")
+        ElseIf Not Int64.TryParse(inputText, Nothing) Then
+            MessageBox.Show("Geçersiz bir ID numarası girdiniz.")
+        ElseIf Convert.ToInt64(inputText) < 0 Then
+            MessageBox.Show("ID Değeri 0'dan küçük olamaz!")
+        Else
             Dim textId As Int64 = Convert.ToInt64(txtInformation.Text)
             Dim employeeInfo = Await viewModel.LoadEmployeeInformation(textId)
             Dim isActive = employeeInfo.data.IsActive
@@ -125,14 +136,11 @@ Public Class EmployeeView
                     female.IsChecked = True
                 End If
 
-
                 If isActive Then
                     activeBox.Text = "Active"
                 Else
                     activeBox.Text = "Passive"
                 End If
-
-
 
                 txtId.Text = data.Id
                 txtAddress.Text = data.Address
@@ -155,14 +163,10 @@ Public Class EmployeeView
                 male.IsEnabled = False
                 female.IsEnabled = False
 
-
-
-            Else
-                MessageBox.Show("Belirtilen ID ile ilgili çalışan bilgisi bulunamadı.")
+                Await viewModel.LoadRequestByEmployeeId(Convert.ToInt64(txtInformation.Text))
             End If
-        Else
-            MessageBox.Show("Geçerli bir ID numarası giriniz.")
         End If
+
     End Sub
 
     Private Sub BtnClear_Click(sender As Object, e As RoutedEventArgs)
@@ -194,6 +198,8 @@ Public Class EmployeeView
         female.IsEnabled = True
         activeBox.Visibility = Visibility.Collapsed
         txtActive.Visibility = Visibility.Collapsed
+
+        viewModel.RequestsByEmployee.Clear()
     End Sub
 End Class
 
