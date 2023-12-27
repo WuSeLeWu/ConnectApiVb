@@ -117,8 +117,8 @@ Public Class EmployeeView
             MessageBox.Show("Lütfen bir ID numarası giriniz.")
         ElseIf Not Int64.TryParse(inputText, Nothing) Then
             MessageBox.Show("Geçersiz bir ID numarası girdiniz.")
-        ElseIf Convert.ToInt64(inputText) < 0 Then
-            MessageBox.Show("ID Değeri 0'dan küçük olamaz!")
+        ElseIf Convert.ToInt64(inputText) <= 0 Then
+            MessageBox.Show("ID Değeri sıfıra eşit veya küçük olamaz!")
         Else
             Dim textId As Int64 = Convert.ToInt64(txtInformation.Text)
             Dim employeeInfo = Await viewModel.LoadEmployeeInformation(textId)

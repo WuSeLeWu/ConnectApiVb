@@ -40,6 +40,7 @@ Public Class MainWindow
         Dim clickedPage As PageModel = CType(clickedButton.DataContext, PageModel)
 
         Dim userControlName As String = clickedPage.Url ' UserControl adını aldık
+        HeaderPageName.Text = clickedPage.PageName
 
         ' UserControl'ün türünü almak için Reflection kullanma
         Dim userControlType As Type = Type.GetType("deneme." & userControlName) ' Namespace, UserControl'lerin bulunduğu yerdir

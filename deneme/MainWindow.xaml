@@ -12,8 +12,7 @@
     Height="760"
     AllowsTransparency="True"
     Background="Transparent"
-    Icon="Images/wwf_logo.ico"
-    MouseLeftButtonDown="Window_MouseLeftButtonDown"
+    Icon="Images/pandap.ico"
     ResizeMode="CanResizeWithGrip"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None">
@@ -33,7 +32,7 @@
                             BorderBrush="Transparent"
                             BorderThickness="0"
                             SnapsToDevicePixels="True">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter HorizontalAlignment="left" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -51,7 +50,7 @@
             <Border
                 Height="40"
                 Margin="10"
-                Background="#394867"
+                Background="#182b52"
                 CornerRadius="10">
                 <Grid Grid.Row="0">
                     <Grid>
@@ -60,49 +59,59 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                     </Grid>
-                    <Border Grid.Column="0">
-                        <ToggleButton
-                            x:Name="btnMenu"
-                            Margin="15,0,0,0"
-                            HorizontalAlignment="left"
-                            VerticalAlignment="Center"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Foreground="black">
-                            <ToggleButton.Triggers>
-                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                    <BeginStoryboard>
-                                        <Storyboard x:Name="HideStackPanel">
-                                            <DoubleAnimation
-                                                BeginTime="0:0:0"
-                                                Storyboard.TargetName="gridMenu"
-                                                Storyboard.TargetProperty="Width"
-                                                From="300"
-                                                To="73"
-                                                Duration="0:0:0.3" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="ToggleButton.Checked">
-                                    <BeginStoryboard>
-                                        <Storyboard x:Name="ShowStackPanel">
-                                            <DoubleAnimation
-                                                BeginTime="0:0:0"
-                                                Storyboard.TargetName="gridMenu"
-                                                Storyboard.TargetProperty="Width"
-                                                From="73"
-                                                To="300"
-                                                Duration="0:0:0.3" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                            </ToggleButton.Triggers>
-                            <fa:ImageAwesome
-                                Width="30"
-                                Cursor="Hand"
-                                Foreground="white"
-                                Icon="bars" />
-                        </ToggleButton>
+                    <Border Grid.Column="0" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+                        <DockPanel>
+
+
+                            <ToggleButton
+                                x:Name="btnMenu"
+                                Margin="15,0,0,0"
+                                HorizontalAlignment="left"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Foreground="black">
+                                <ToggleButton.Triggers>
+                                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                        <BeginStoryboard>
+                                            <Storyboard x:Name="HideStackPanel">
+                                                <DoubleAnimation
+                                                    BeginTime="0:0:0"
+                                                    Storyboard.TargetName="gridMenu"
+                                                    Storyboard.TargetProperty="Width"
+                                                    From="73"
+                                                    To="300"
+                                                    Duration="0:0:0.3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                        <BeginStoryboard>
+                                            <Storyboard x:Name="ShowStackPanel">
+                                                <DoubleAnimation
+                                                    BeginTime="0:0:0"
+                                                    Storyboard.TargetName="gridMenu"
+                                                    Storyboard.TargetProperty="Width"
+                                                    From="300"
+                                                    To="73"
+                                                    Duration="0:0:0.3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </ToggleButton.Triggers>
+                                <fa:ImageAwesome
+                                    Width="30"
+                                    Cursor="Hand"
+                                    Foreground="white"
+                                    Icon="bars" />
+                            </ToggleButton>
+                            <TextBlock
+                                x:Name="HeaderPageName"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="White" />
+                        </DockPanel>
                     </Border>
                     <Border Grid.Column="1">
 
@@ -178,7 +187,7 @@
                     Width="300"
                     Margin="15,10,10,30"
                     HorizontalAlignment="Left"
-                    Background="#394867"
+                    Background="#182b52"
                     CornerRadius="15">
                     <Grid Grid.Column="0">
                         <Grid.RowDefinitions>
@@ -394,18 +403,17 @@
                                 ItemsSource="{Binding PageDataList}">
                                 <TreeView.ItemContainerStyle>
                                     <Style TargetType="TreeViewItem">
-                                        <Setter Property="Background" Value="#394867" />
+                                        <Setter Property="Background" Value="#182b52" />
                                         <Setter Property="Cursor" Value="Hand" />
 
-                                        <!--  Seçili öğe için arka planı belirliyor  -->
                                         <Setter Property="BorderBrush" Value="Transparent" />
                                         <Setter Property="BorderThickness" Value="0" />
                                         <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="Background" Value="#394867" />
-                                                <Setter Property="BorderThickness" Value="0" />
-                                                <Setter Property="BorderBrush" Value="Transparent" />
-                                                <!--  Seçildiğinde arka plan rengini null olarak ayarlar  -->
+                                            <Trigger Property="IsSelected" Value="true">
+                                                <Setter Property="Background" Value="#182b52" />
+                                                <Setter Property="BorderThickness" Value="2,0,0,0" />
+                                                <Setter Property="BorderBrush" Value="White" />
+
                                             </Trigger>
 
                                         </Style.Triggers>
@@ -421,6 +429,8 @@
                                                 Foreground="white"
                                                 Icon="{Binding Icon}" />
                                             <Button
+                                                Width="200"
+                                                HorizontalContentAlignment="Left"
                                                 Click="PageNavigation_Click"
                                                 Content="{Binding PageName}"
                                                 FontSize="15"
@@ -431,10 +441,7 @@
                                 </TreeView.ItemTemplate>
                                 <TreeView.Template>
                                     <ControlTemplate TargetType="TreeView">
-                                        <Border
-                                            Background="{TemplateBinding Background}"
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                        <Border Background="Transparent" BorderThickness="0">
                                             <ItemsPresenter />
                                         </Border>
                                     </ControlTemplate>
@@ -450,7 +457,8 @@
                 <Grid Grid.Column="1">
                     <Border
                         Margin="10,10,20,30"
-                        Background="#394867"
+                        Padding="2"
+                        Background="#182b52"
                         CornerRadius="15">
                         <Frame
                             x:Name="MainFrame"
