@@ -74,10 +74,8 @@ Public Class MainViewModel
             Dim response As String = Await apiService.FetchDataAsync("Page/GetAll")
             Dim apiResponse = JsonConvert.DeserializeObject(Of ResponseModel(Of List(Of PageModel)))(response)
 
-            ' Gelen verileri Model sınıfına dönüştürme
             Dim pageModels = ConvertToPageModels(apiResponse.data)
 
-            ' Verileri YourPageModelCollection'a ekleme
             For Each page In pageModels
                 PageDataList.Add(page)
             Next
@@ -112,11 +110,6 @@ Public Class MainViewModel
         Return pageModels
     End Function
 
-
-
-
-
-    ' INotifyPropertyChanged için gerekli event ve metotlar
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
     Protected Sub OnPropertyChanged(propertyName As String)
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))

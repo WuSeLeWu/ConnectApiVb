@@ -229,10 +229,51 @@
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" Margin="0,25,0,0">
+
+                            <!--<dxa:AccordionControl Margin="0,0" Background="#000000">
+                                <dxa:AccordionItem
+                                    Margin="0,5"
+                                    FontSize="20"
+                                    Foreground="White"
+                                    IsExpanded="True">
+                                    <ItemsControl ItemsSource="{Binding PageDataList}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <dxa:AccordionItem Header="{Binding PageName}" IsExpanded="{Binding IsExpanded, Mode=TwoWay}">
+                                                    <ItemsControl ItemsSource="{Binding LowerPages}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <dxa:AccordionItem Header="{Binding PageName}" IsExpanded="{Binding IsExpanded, Mode=TwoWay}">
+                                                                    <ItemsControl ItemsSource="{Binding LowerPages}">
+                                                                        <ItemsControl.ItemTemplate>
+                                                                            <DataTemplate>
+                                                                                <dxa:AccordionItem Header="{Binding LowerPages}" IsExpanded="{Binding IsExpanded, Mode=TwoWay}">
+                            -->
+                            <!--  Alt alt sayfa içeriği  -->
+                            <!--
+                                                                                </dxa:AccordionItem>
+                                                                            </DataTemplate>
+                                                                        </ItemsControl.ItemTemplate>
+                                                                    </ItemsControl>
+                                                                </dxa:AccordionItem>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </dxa:AccordionItem>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </dxa:AccordionItem>
+                            </dxa:AccordionControl>-->
+
+
+
+
                             <!--<dxa:AccordionControl
                                 Margin="0,0"
                                 Background="#000000"
-                                ExpandMode="Multiple">
+                                ExpandMode="Multiple"
+                                ItemsSource="{Binding PageDataList}">
                                 <dxa:AccordionItem
                                     Margin="0,5"
                                     FontSize="20"
@@ -256,144 +297,8 @@
                                             FontSize="15"
                                             Foreground="white" />
                                     </DockPanel>
-                                    <DockPanel Margin="5,5">
-                                        <fa:ImageAwesome
-                                            Width="19"
-                                            Height="16"
-                                            Margin="10,0"
-                                            Foreground="white"
-                                            Icon="Download" />
-                                        <Button
-                                            Padding="0"
-                                            HorizontalAlignment="Left"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                            Content="Downloads"
-                                            FontSize="15"
-                                            Foreground="white" />
-                                    </DockPanel>
                                 </dxa:AccordionItem>
 
-                                <dxa:AccordionItem
-                                    Margin="0,5"
-                                    FontSize="20"
-                                    Foreground="White"
-                                    Header="+Request"
-                                    IsExpanded="True">
-                                    <DockPanel Margin="5,5">
-                                        <fa:ImageAwesome
-                                            Width="19"
-                                            Height="16"
-                                            Margin="10,0"
-                                            Foreground="white"
-                                            Icon="Bell" />
-                                        <Button
-                                            Padding="0"
-                                            HorizontalAlignment="Left"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                            Click="ButtonHome_Click"
-                                            Content="My Requests"
-                                            FontSize="15"
-                                            Foreground="white" />
-                                    </DockPanel>
-                                    <DockPanel Margin="5,5">
-                                        <fa:ImageAwesome
-                                            Width="19"
-                                            Height="16"
-                                            Margin="10,0"
-                                            Foreground="white"
-                                            Icon="ListAlt" />
-                                        <Button
-                                            Padding="0"
-                                            HorizontalAlignment="Left"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                            Content="Request Processes"
-                                            FontSize="15"
-                                            Foreground="white" />
-                                    </DockPanel>
-                                </dxa:AccordionItem>
-                                <dxa:AccordionItem
-                                    Margin="0,5"
-                                    FontSize="20"
-                                    Foreground="White"
-                                    Header="+Roles"
-                                    IsExpanded="True">
-                                    <DockPanel Margin="5,5">
-                                        <fa:ImageAwesome
-                                            Width="19"
-                                            Height="16"
-                                            Margin="10,0"
-                                            Foreground="white"
-                                            Icon="Users" />
-                                        <Button
-                                            Padding="0"
-                                            HorizontalAlignment="Left"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                            Click="ButtonRole_Click"
-                                            Content="Roles"
-                                            FontSize="15"
-                                            Foreground="white" />
-                                    </DockPanel>
-                                    <DockPanel Margin="5,5">
-                                        <fa:ImageAwesome
-                                            Width="19"
-                                            Height="16"
-                                            Margin="10,0"
-                                            Foreground="white"
-                                            Icon="CheckSquare" />
-                                        <Button
-                                            Padding="0"
-                                            HorizontalAlignment="Left"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                            Content="Users Check"
-                                            FontSize="15"
-                                            Foreground="white" />
-                                    </DockPanel>
-                                </dxa:AccordionItem>
-                                <dxa:AccordionItem
-                                    Margin="0,5"
-                                    FontSize="20"
-                                    Foreground="White"
-                                    Header="+Employee"
-                                    IsExpanded="True">
-                                    <DockPanel Margin="5,5">
-                                        <fa:ImageAwesome
-                                            Width="19"
-                                            Height="16"
-                                            Margin="10,0"
-                                            Foreground="white"
-                                            Icon="IdCard" />
-                                        <Button
-                                            Padding="0"
-                                            HorizontalAlignment="Left"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                            Click="ButtonEmployee_Click"
-                                            Content="Employees"
-                                            FontSize="15"
-                                            Foreground="white" />
-                                    </DockPanel>
-                                    <DockPanel Margin="5,5">
-                                        <fa:ImageAwesome
-                                            Width="19"
-                                            Height="16"
-                                            Margin="10,0"
-                                            Foreground="white"
-                                            Icon="CheckSquare" />
-                                        <Button
-                                            Padding="0"
-                                            HorizontalAlignment="Left"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                            Content="Employees Check"
-                                            FontSize="15"
-                                            Foreground="white" />
-                                    </DockPanel>
-                                </dxa:AccordionItem>
                             </dxa:AccordionControl>-->
                             <TreeView
                                 x:Name="MyTreeView"

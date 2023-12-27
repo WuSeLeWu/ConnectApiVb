@@ -3,11 +3,9 @@ Imports DevExpress.Pdf
 Imports Newtonsoft.Json
 
 Public Class EmployeeVM
-    Implements IStatusOkSub
 
     Private ReadOnly apiService As ApiConnect
 
-    Public Event StatusOK As EventHandler Implements IStatusOkSub.StatusOK
     Public Property Users As ObservableCollection(Of EmployeeModel)
     Public Property Companies As ObservableCollection(Of CompanyModel)
     Public Property Departments As ObservableCollection(Of DepartmentModel)
@@ -89,19 +87,4 @@ Public Class EmployeeVM
         Await apiService.UpdateDataAsync("Employee/Update", role)
     End Function
 
-    Public Sub OpenWindowCommand() Implements IStatusOkSub.OpenWindowCommand
-        Dim employeeCrud As EmployeeCrud = New EmployeeCrud()
-        AddHandler employeeCrud.StatusOK, AddressOf StatusOKSub
-        employeeCrud.Show()
-    End Sub
-
-    Public Sub BtnEditCommand(id As Integer) Implements IStatusOkSub.BtnEditCommand
-        Dim modalWindow As New EmployeeUpdateWin(id)
-        AddHandler modalWindow.StatusOK, AddressOf StatusOKSub
-        modalWindow.ShowDialog()
-    End Sub
-
-    Public Sub StatusOKSub() Implements IStatusOkSub.StatusOKSub
-        LoadUsers()
-    End Sub
 End Class

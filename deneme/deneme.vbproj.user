@@ -2,9 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="EmployeeCrud.xaml.vb">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="LoginWindow.xaml.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -17,14 +14,8 @@
     <Compile Update="Views\RoleView.xaml.vb">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\UpdateWindows\EmployeeUpdateWin.xaml.vb">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="EmployeeCrud.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -38,9 +29,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\RoleView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\UpdateWindows\EmployeeUpdateWin.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
