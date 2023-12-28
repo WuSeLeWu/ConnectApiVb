@@ -185,7 +185,7 @@
                     x:Name="gridMenu"
                     Grid.Column="0"
                     Width="300"
-                    Margin="15,10,10,30"
+                    Margin="15,10,10,20"
                     HorizontalAlignment="Left"
                     Background="#182b52"
                     CornerRadius="15">
@@ -230,76 +230,6 @@
 
                         <StackPanel Grid.Row="1" Margin="0,25,0,0">
 
-                            <!--<dxa:AccordionControl Margin="0,0" Background="#000000">
-                                <dxa:AccordionItem
-                                    Margin="0,5"
-                                    FontSize="20"
-                                    Foreground="White"
-                                    IsExpanded="True">
-                                    <ItemsControl ItemsSource="{Binding PageDataList}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <dxa:AccordionItem Header="{Binding PageName}" IsExpanded="{Binding IsExpanded, Mode=TwoWay}">
-                                                    <ItemsControl ItemsSource="{Binding LowerPages}">
-                                                        <ItemsControl.ItemTemplate>
-                                                            <DataTemplate>
-                                                                <dxa:AccordionItem Header="{Binding PageName}" IsExpanded="{Binding IsExpanded, Mode=TwoWay}">
-                                                                    <ItemsControl ItemsSource="{Binding LowerPages}">
-                                                                        <ItemsControl.ItemTemplate>
-                                                                            <DataTemplate>
-                                                                                <dxa:AccordionItem Header="{Binding LowerPages}" IsExpanded="{Binding IsExpanded, Mode=TwoWay}">
-                            -->
-                            <!--  Alt alt sayfa içeriği  -->
-                            <!--
-                                                                                </dxa:AccordionItem>
-                                                                            </DataTemplate>
-                                                                        </ItemsControl.ItemTemplate>
-                                                                    </ItemsControl>
-                                                                </dxa:AccordionItem>
-                                                            </DataTemplate>
-                                                        </ItemsControl.ItemTemplate>
-                                                    </ItemsControl>
-                                                </dxa:AccordionItem>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </dxa:AccordionItem>
-                            </dxa:AccordionControl>-->
-
-
-
-
-                            <!--<dxa:AccordionControl
-                                Margin="0,0"
-                                Background="#000000"
-                                ExpandMode="Multiple"
-                                ItemsSource="{Binding PageDataList}">
-                                <dxa:AccordionItem
-                                    Margin="0,5"
-                                    FontSize="20"
-                                    Foreground="White"
-                                    Header="+Home"
-                                    IsExpanded="True">
-                                    <DockPanel Margin="5,5">
-                                        <fa:ImageAwesome
-                                            Width="19"
-                                            Height="16"
-                                            Margin="10,0"
-                                            Foreground="white"
-                                            Icon="home" />
-                                        <Button
-                                            Padding="0"
-                                            HorizontalAlignment="Left"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                            Click="ButtonHome_Click"
-                                            Content="Home"
-                                            FontSize="15"
-                                            Foreground="white" />
-                                    </DockPanel>
-                                </dxa:AccordionItem>
-
-                            </dxa:AccordionControl>-->
                             <TreeView
                                 x:Name="MyTreeView"
                                 Background="Transparent"
@@ -361,7 +291,7 @@
 
                 <Grid Grid.Column="1">
                     <Border
-                        Margin="10,10,20,30"
+                        Margin="10,10,20,20"
                         Padding="2"
                         Background="#182b52"
                         CornerRadius="15">

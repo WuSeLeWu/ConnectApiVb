@@ -86,12 +86,12 @@ Public Class EmployeeView
 
         If String.IsNullOrEmpty(inputText) Then
             MessageBox.Show("Lütfen bir ID numarası giriniz.")
-        ElseIf Not Int64.TryParse(inputText, Nothing) Then
-            MessageBox.Show("Geçersiz bir ID numarası girdiniz.")
-        ElseIf Convert.ToInt64(inputText) <= 0 Then
-            MessageBox.Show("ID Değeri sıfıra eşit veya küçük olamaz!")
+            'ElseIf Not String.TryParse(inputText, Nothing) Then
+            '    MessageBox.Show("Geçersiz bir ID numarası girdiniz.")
+        ElseIf inputText.Length <> 11 Then
+            MessageBox.Show("Tc Kimlik Numarası 11 Karakterden Oluşmaktadır")
         Else
-            Dim textId As Int64 = Convert.ToInt64(txtInformation.Text)
+            Dim textId As String = txtInformation.Text
             Dim employeeInfo = Await viewModel.LoadEmployeeInformation(textId)
             Dim isActive = employeeInfo.data.IsActive
             activeBox.Visibility = Visibility.Visible
@@ -134,7 +134,7 @@ Public Class EmployeeView
                 male.IsEnabled = False
                 female.IsEnabled = False
 
-                Await viewModel.LoadRequestByEmployeeId(Convert.ToInt64(txtInformation.Text))
+                Await viewModel.LoadRequestByEmployeeId(txtInformation.Text)
             End If
         End If
 

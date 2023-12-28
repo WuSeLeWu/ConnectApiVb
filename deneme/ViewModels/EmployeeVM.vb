@@ -59,10 +59,10 @@ Public Class EmployeeVM
         End If
     End Function
 
-    Public Async Function LoadRequestByEmployeeId(id As Long) As Task
+    Public Async Function LoadRequestByEmployeeId(identity As String) As Task
         RequestsByEmployee.Clear()
 
-        Dim response As String = Await apiService.FetchDataAsync($"Request/GetByEmployeeId/{id}")
+        Dim response As String = Await apiService.FetchDataAsync($"Request/GetByIdentity/{identity}")
         Dim apiResponse = JsonConvert.DeserializeObject(Of ResponseModel(Of List(Of RequestModel)))(response)
 
         If apiResponse.success Then
@@ -72,8 +72,8 @@ Public Class EmployeeVM
         End If
     End Function
 
-    Public Async Function LoadEmployeeInformation(id As Long) As Task(Of ResponseModel(Of EmployeeModel))
-        Dim response As String = Await apiService.FetchDataAsync($"Employee/GetById/{id}")
+    Public Async Function LoadEmployeeInformation(identity As String) As Task(Of ResponseModel(Of EmployeeModel))
+        Dim response As String = Await apiService.FetchDataAsync($"Employee/GetByIdentity/{identity}")
         Dim apiResponse = JsonConvert.DeserializeObject(Of ResponseModel(Of EmployeeModel))(response)
 
         Return apiResponse
